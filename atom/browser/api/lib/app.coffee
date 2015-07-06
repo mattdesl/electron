@@ -25,6 +25,12 @@ if process.platform is 'darwin'
     show: bindings.dockShow
     setMenu: bindings.dockSetMenu
 
+app._setAppPath = (path) ->
+  this.path = path
+
+app.getAppPath = () ->
+  this.path
+
 # Be compatible with old API.
 app.once 'ready', -> @emit 'finish-launching'
 app.terminate = app.quit
